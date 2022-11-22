@@ -1,0 +1,125 @@
+# Polymorphism
+#simple forms
+def sub(x, y):
+ return x-y
+print( sub (2,1))
+
+def length_text(x):
+ print ("The length of", repr(x), "is", len(x))
+print(length_text("Hello"))
+
+# class
+class name:
+    def setname(self,name):
+        self.name=name
+    def getname(self,name):
+        return self.name
+    def myname(self):
+        print("I m %s."% self.name)
+c=name()
+c.setname("Brundha")
+c.myname()
+OR
+class name:
+    def setname(self,name):
+        self.name=name
+    def getname(self,name):
+        return self.name
+    def myname(self):
+        print("I m %s."% self.name)
+c=name()
+c.name = "Brundha"
+c.myname()
+
+#using self parameter
+class Fruit:
+ def method(self):
+    print ('I like banana!')
+def function():
+  print ("I don't...")
+instance = Fruit()
+instance.method()
+instance.method = function
+instance.method()
+
+#class namespace
+class Count:
+ count = 1
+ def init(self):
+    Count.count *= 2
+  
+c1 = Count()
+c1.init()
+Count.count
+
+c2 = Count()
+c2.init()
+Count.count
+
+c3 = Count()
+c3.init()
+Count.count
+
+#inheritance
+class Seed:
+ def seed(self,name):
+  self.name = name
+class Plant:
+ def plant(self):
+  print("Finally grown into.",self.name)
+class Tree(Seed,Plant):
+ pass
+s= Tree()
+s.seed("Apple")
+s.plant()
+
+#exception error
+try:
+ x = int(input('Enter the first number: '))
+ y = (input('Enter the second number: '))
+ print (x/y)
+except ZeroDivisionError:
+ print ("The second number can't be zero!")
+except TypeError:
+ print ("Enter a valid number")
+ 
+ try:
+ x = input('Enter the first number: ')
+ y = input('Enter the second number: ')
+ print (x/y)
+except:
+ print ('Something wrong happened...')
+ 
+while True:
+ try:
+  x = int(input('Enter the first number: '))
+  y = int(input('Enter the second number: '))
+  value = x/y
+  print ('x/y is', value)
+ except Exception, e:
+  print ('Invalid input:', e)
+  print ('Please try again')
+ else:
+  break
+ 
+ #__init__
+ class FooBar:
+ def __init__(self, value=42):
+  self.somevar = value
+f = FooBar('This is a constructor argument')
+f.somevar
+
+#Static and Class
+class Universe:
+    
+ @staticmethod
+ def smeth():
+  print ('Uncountable')
+         
+ @classmethod
+ def cmeth(cls):
+  print ("This is inside",cls)
+Universe.smeth()
+Universe.cmeth()
+
+
